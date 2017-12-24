@@ -15,20 +15,20 @@ author: "Primitive Coder M"
 
 3.	File Data Store 구현
 
-<br>3.1	Entity Analyzer
-<br>3.2	FileDbWrapper
+<hr>3.1.	Entity Analyzer
+<hr>3.2.	FileDbWrapper
 
 4.	발생 이슈
-<br>4.1	Field Access Permission
-<br>4.2	사용자 정의 클래스의 계층 구조 분석
-<br>4.3	List Type의 Field 저장
-<br>4.4	문자열을 primitive type으로 변환
-<br>4.5	Interface에 정의된 method의 반환 값을 저장
+<hr>4.1.	Field Access Permission
+<hr>4.2.	사용자 정의 클래스의 계층 구조 분석
+<hr>4.3.	List Type의 Field 저장
+<hr>4.4.	문자열을 primitive type으로 변환
+<hr>4.5.	Interface에 정의된 method의 반환 값을 저장
 5.	한계점
-<br>5.1	한정적인 Interface 분석
-<br>5.2	Entity 클래스를 상속해야만 id 식별 가능
-<br>5.3	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
-<br>5.4	테스트 케이스가 현 프로젝트에만 한정
+<hr>5.1.	한정적인 Interface 분석
+<hr>5.2.	Entity 클래스를 상속해야만 id 식별 가능
+<hr>5.3.	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
+<hr>5.4.	테스트 케이스가 현 프로젝트에만 한정
 
 6.	맺음말
 
@@ -41,7 +41,7 @@ author: "Primitive Coder M"
 <br>
 <br>
 
-###### 1. 기존 방식의 문제점과 해결 방안######
+### 1. 기존 방식의 문제점과 해결 방안###
 프로젝트의 주제는 전자 장부입니다. 전자 장부의 내용은 입출금 통장의 지면을 생각하면 쉽게 예상할 수 있습니다. 이 입출금 내역을 전산으로 옮긴다고 생각해 보겠습니다. 
 
 등장하는 개념들 중 개체Entity로 식별된 것들은 ‘장부(Cashbook)’, ‘거래 내역(Transaction)’입니다. 
@@ -135,7 +135,7 @@ Cashbook과 Cashbook에 포함된 Transaction들을 등록, 조회, 수정, 삭�
 <br>
 <br>
 
-###### 2. File Data Store 개요######
+### 2. File Data Store 개요###
 File Data Store는 DataStore 인터페이스를 구현한 것입니다. DataStore 인터페이스는 Cashbook의 등록, 조회, 수정, 삭제 메소드를 요구하고 있습니다.
  
 해당 기능들에서 공통적으로 반복되는 행위를 다음과 같이 다섯 가지로 정리했습니다.
@@ -155,8 +155,7 @@ File Data Store는 DataStore 인터페이스를 구현한 것입니다. DataStor
 <br>
 <br>
 
-###### 3. File Data Store 구현 ######
-
+### 3. File Data Store 구현 ###
 **3.1 Entity Analyzer**
 
 Entity Analyzer는 Java reflection을 사용해 미지의 객체를 문자열로 변환해 주고, 문자열을 다시 객체로 복원시켜 주며, 특정 문자열을 검색해 줍니다. 이 세 가지 기능을 명세해 보겠습니다.
