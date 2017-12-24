@@ -10,26 +10,21 @@ author: "Primitive Coder M"
 **목차**
 
 1.	기존 방식의 문제점과 해결 방안
-
 2.	File Data Store 개요
-
 3.	File Data Store 구현
-
-<hr>3.1.	Entity Analyzer
-<hr>3.2.	FileDbWrapper
-
+3.1.	Entity Analyzer
+3.2.	FileDbWrapper
 4.	발생 이슈
-<hr>4.1.	Field Access Permission
-<hr>4.2.	사용자 정의 클래스의 계층 구조 분석
-<hr>4.3.	List Type의 Field 저장
-<hr>4.4.	문자열을 primitive type으로 변환
-<hr>4.5.	Interface에 정의된 method의 반환 값을 저장
+4.1.	Field Access Permission
+4.2.	사용자 정의 클래스의 계층 구조 분석
+4.3.	List Type의 Field 저장
+4.4.	문자열을 primitive type으로 변환
+4.5.	Interface에 정의된 method의 반환 값을 저장
 5.	한계점
-<hr>5.1.	한정적인 Interface 분석
-<hr>5.2.	Entity 클래스를 상속해야만 id 식별 가능
-<hr>5.3.	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
-<hr>5.4.	테스트 케이스가 현 프로젝트에만 한정
-
+5.1.	한정적인 Interface 분석
+5.2.	Entity 클래스를 상속해야만 id 식별 가능
+5.3.	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
+5.4.	테스트 케이스가 현 프로젝트에만 한정
 6.	맺음말
 
 <br>
