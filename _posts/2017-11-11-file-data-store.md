@@ -9,17 +9,17 @@ author: "Primitive Coder M"
 
 **목차**
 
-**1.	기존 방식의 문제점과 해결 방안
+1.	기존 방식의 문제점과 해결 방안
 
-**2.	File Data Store 개요
+2.	File Data Store 개요
 
-**3.	File Data Store 구현
+3.	File Data Store 구현
 
 *	Entity Analyzer
 
 *	FileDbWrapper
 
-**4.	발생 이슈
+4.	발생 이슈
 
 *	Field Access Permission
 
