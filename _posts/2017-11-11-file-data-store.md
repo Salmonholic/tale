@@ -14,20 +14,21 @@ author: "Primitive Coder M"
 2.	File Data Store 개요
 
 3.	File Data Store 구현
-3.1	Entity Analyzer
-3.2	FileDbWrapper
+
+<br>3.1	Entity Analyzer
+<br>3.2	FileDbWrapper
 
 4.	발생 이슈
-4.1	Field Access Permission
-4.2	사용자 정의 클래스의 계층 구조 분석
-4.3	List Type의 Field 저장
-4.4	문자열을 primitive type으로 변환
-4.5	Interface에 정의된 method의 반환 값을 저장
+<br>4.1	Field Access Permission
+<br>4.2	사용자 정의 클래스의 계층 구조 분석
+<br>4.3	List Type의 Field 저장
+<br>4.4	문자열을 primitive type으로 변환
+<br>4.5	Interface에 정의된 method의 반환 값을 저장
 5.	한계점
-5.1	한정적인 Interface 분석
-5.2	Entity 클래스를 상속해야만 id 식별 가능
-5.3	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
-5.4	테스트 케이스가 현 프로젝트에만 한정
+<br>5.1	한정적인 Interface 분석
+<br>5.2	Entity 클래스를 상속해야만 id 식별 가능
+<br>5.3	검색 key를 정의할 때 반드시 명명 규칙을 따라야 작동
+<br>5.4	테스트 케이스가 현 프로젝트에만 한정
 
 6.	맺음말
 
@@ -40,7 +41,7 @@ author: "Primitive Coder M"
 <br>
 <br>
 
-######1. 기존 방식의 문제점과 해결 방안######
+###### 1. 기존 방식의 문제점과 해결 방안######
 프로젝트의 주제는 전자 장부입니다. 전자 장부의 내용은 입출금 통장의 지면을 생각하면 쉽게 예상할 수 있습니다. 이 입출금 내역을 전산으로 옮긴다고 생각해 보겠습니다. 
 
 등장하는 개념들 중 개체Entity로 식별된 것들은 ‘장부(Cashbook)’, ‘거래 내역(Transaction)’입니다. 
@@ -134,11 +135,11 @@ Cashbook과 Cashbook에 포함된 Transaction들을 등록, 조회, 수정, 삭�
 <br>
 <br>
 
-######2. File Data Store 개요######
+###### 2. File Data Store 개요######
 File Data Store는 DataStore 인터페이스를 구현한 것입니다. DataStore 인터페이스는 Cashbook의 등록, 조회, 수정, 삭제 메소드를 요구하고 있습니다.
  
 해당 기능들에서 공통적으로 반복되는 행위를 다음과 같이 다섯 가지로 정리했습니다.
-
+<br>
 >1. 자바 객체를 문자열로 변환하기
 2. 문자열을 파일로 저장하기
 3. 파일을 불러와 문자열 읽기
@@ -146,7 +147,7 @@ File Data Store는 DataStore 인터페이스를 구현한 것입니다. DataStor
 5. 문자열을 객체로 변환하기
 
 이 네 가지 기능은 크게 둘로 나뉩니다. 
-
+<br>
 >1. 자바 객체 <-> 문자열 변환하기
 2. 파일 읽고 쓰기
 
@@ -154,7 +155,7 @@ File Data Store는 DataStore 인터페이스를 구현한 것입니다. DataStor
 <br>
 <br>
 
-######3. File Data Store 구현 ######
+###### 3. File Data Store 구현 ######
 
 **3.1 Entity Analyzer**
 
@@ -179,10 +180,11 @@ boolean.class;
 ```
 
 그렇다면 Class가 어떤 정보들을 제공하는지 알아보겠습니다.
-
-== https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html ==
-
+<br>
+ https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html 
+<br>
 위 문서를 참고하면 Field, Constructor, Method, Annotation 등 Class 정의 시에 들어간 대부분의 내용을 꺼내 볼 수 있다고 합니다. 미지의 객체가 등장했을 때, 이 객체에서 Class 정보를 가져와 Field의 값들을 나열하기만 하면 저절로 한 줄의 레코드가 완성되리라는 기대가 차오릅니다. 이제 Cashbook의 배를 갈라 Field들을 꺼내 보겠습니다. 
+
 ```
 import java.lang.reflect.Field; 
 
